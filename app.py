@@ -81,7 +81,7 @@ def main():
             if choice == 'Tablas':
                 all_columns = ['aseguradora', 'estado', 'persona_genero', 'franja_horaria','estado_primer_movimiento', 'recomendacion', 'dia_semana_contacto', 'dia_semana_ultimo_estado', 'age_group']# df.columns.tolist() # Get columns ['aseguradora', 'estado', 'franja_horaria',
                 #'fecha_ultimo_estado', 'mes_alta', 'dia_semana_alta', 'hora_alta', 'mes_contacto',]
-                groupby_columns = st.multiselect('Select columns to group by', options=all_columns, default=['aseguradora'])
+                groupby_columns = st.multiselect('Select columns to group by', options=all_columns, default=['aseguradora','recomendacion'])
                 if st.button('Show Table'):
                     if groupby_columns:
                         result_df = visualizer.tablas(groupby_columns)
