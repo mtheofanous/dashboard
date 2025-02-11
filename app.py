@@ -8,7 +8,14 @@ from visualizacion_1 import DataVisualizer  # Adjust the import based on your fi
 import kaleido
 
 def load_data():
-    uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+    
+    file_path = 'fake_data_grande.csv'
+    
+    if st.checkbox('Load Sample Data'):
+        uploaded_file = pd.read_csv(file_path)
+    
+    else:
+        uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
     
     if uploaded_file is not None:
         try:
