@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.io as pio
 from io import StringIO
 from visualizacion_1 import DataVisualizer  # Adjust the import based on your file structure
+import os
 
 # Ensure kaleido is installed
 import kaleido
@@ -11,9 +12,10 @@ def load_data():
     
     file_path = 'fake_data_grande.csv'
     
-    if st.checkbox('Load Sample Data'):
-        uploaded_file = pd.read_csv(file_path)
-    
+    if os.path.exists(file_path):
+            # Load test data directly
+            uploaded_file = file_path
+            st.info("Using test dataset: fake_data_grande.csv")
     else:
         uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
     
